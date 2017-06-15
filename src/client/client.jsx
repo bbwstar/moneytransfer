@@ -11,7 +11,6 @@ import createHistory from 'history/createBrowserHistory';
 import App from 'client/containers/AppContainer';
 import createStore from 'universal/redux/createStore';
 import rootSaga from 'universal/sagas/index';
-import RouteMap from 'universal/routes/RouteMap';
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__INITIAL_STATE__;
@@ -39,6 +38,7 @@ const renderApp = (Component) => {
 
 const PROD = process.env.NODE_ENV === 'production';
 if (PROD) {
+  const RouteMap = require('universal/routes/RouteMap');
   Promise.all(splitPoints.map(chunk => RouteMap[chunk].loadComponent())).then(() => {
     renderApp(App);
   });
