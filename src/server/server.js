@@ -14,6 +14,7 @@ const PROD = process.env.NODE_ENV === 'production';
 
 const app = express();
 
+app.use(express.static('public'));
 if (PROD) {
   app.use('/static', express.static('build'));
   app.get('*', renderPage);
