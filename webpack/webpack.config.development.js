@@ -1,7 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import StyleLintPlugin from 'stylelint-webpack-plugin';
 
 const root = process.cwd();
 const src = path.join(root, 'src');
@@ -45,11 +44,11 @@ export default {
   module: {
     loaders: [
       {
-        test: /\.(png|j|jpeg|gif|svg|woff|woff2)$/,
+        test: /\.png|\.jpg/,
         use: {
           loader: 'url-loader',
           options: {
-            limit: 10000,
+            limit: 8192,
           },
         },
       },
@@ -78,12 +77,12 @@ export default {
       {
         test: /\.css$/,
         include: clientInclude,
+        exclude: /global\.css$/,
         use: [
           { loader: 'style-loader' },
           {
             loader: 'css-loader',
             options: {
-              root: src,
               modules: true,
               importLoaders: 1,
               localIdentName: '[name]_[local]_[hash:base64:5]',
@@ -93,6 +92,10 @@ export default {
             loader: 'postcss-loader',
           },
         ],
+      },
+      {
+        test: /global\.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
   },

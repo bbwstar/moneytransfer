@@ -13,8 +13,13 @@ const Html = (props) => {
   return (
     <html lang="en">
       <head>
+        <title>title2</title>
         <meta charSet="utf-8" />
-        <title>title</title>
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
         {PROD && <link rel="stylesheet" href="/static/prerender.css" type="text/css" />}
       </head>
       <body>
@@ -26,6 +31,13 @@ const Html = (props) => {
         {PROD && <script dangerouslySetInnerHTML={{ __html: manifest.text }} />}
         {PROD && <script src={vendor.js} />}
         <script src={PROD ? app.js : '/static/app.js'} />
+        <section className="hero is-primary">
+          <div className="hero-body">
+            <div className="container has-text-centered is-medium">
+              <p>© 2015-2017. All rights reserved.</p>
+            </div>
+          </div>
+        </section>
       </body>
     </html>
   );
