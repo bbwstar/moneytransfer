@@ -1,66 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
+import Countries from 'components/Home/Countries';
+import Navigation from 'components/Navigation/Navigation';
+import CalculatorForm from 'modules/calculator/components/CalculatorForm';
 import styles from './Home.css';
 
 const Home = () =>
-  (<div className={styles.home}>
-    <h1 className={styles.title}>
-      <span role="img" aria-label="thunderstorm">⚡</span> Universal JS, HMR and SSR ⚡
-    </h1>
-
-    <div>
-      <h2>What is it?</h2>
-      <ul>
-        <li>
-          <b>Universal JS: -</b><br />
-          <p>JavaScript that can run on both the server and client (or any other JS platform for that matter) !</p>
-        </li>
-
-        <li>
-          <b>Hot Module Reloading: -</b><br />
-          <p>Replaces modules that have been changed in real time while preserving the state.</p>
-        </li>
-
-        <li>
-          <b>Server Side Rendering: -</b><br />
-          <p>Renders Pages on the initial for fast page loads and search engine optimization</p>
-        </li>
-      </ul>
-    </div>
-
-    <div>
-      <h2>Why?</h2>
-      <ul>
-        <li>Incredibly Productive</li>
-        <li>Extremely Flexible</li>
-        <li>Blazing Fast</li>
-        <li>... And its just plain cool <span role="img" aria-label="cool emoji">😎</span></li>
-      </ul>
-    </div>
-
-    <div>
-      <h2>How?</h2>
-
-      <p>The Basic setup goes like this...</p>
-
-      <ol>
-        <li><p>An express server to handle requests, render the page and handle all our file requests.</p></li>
-        <li><p>Webpack to bundle everything up listen for files changes and hot reload them to the client.</p></li>
-        <li>
-          <p>
-            We will be using React, Redux and React Router to match url requests, and render the state to html that
-            we can then send back to the client.
-          </p>
-        </li>
-      </ol>
-
-      <p>Lets check it out...</p>
-    </div>
-
-    <div className={styles.center}>
-      <Link className={styles.button} to="/counter">Go to App</Link>
-    </div>
+  (<div>
+    <section className={classNames('hero', 'is-dark', 'is-fullheight', styles.heroLandingImage)}>
+      <Navigation />
+      <div className="hero-body">
+        <div className="container has-text-centered">
+          <div className="tile is-vertical">
+            <div className="content is-large mb-1">
+              <h1 className="title is-1">Find the cheapest option to transfer money abroad1</h1>
+              <p>You can also search for the fastest or the easiest option</p>
+            </div>
+            <CalculatorForm />
+            <div className="vh-30 is-hidden-mobile" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <Countries />
   </div>);
 
 export default Home;
