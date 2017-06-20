@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import StyleLintPlugin from 'stylelint-webpack-plugin';
 
 const root = process.cwd();
 const src = path.join(root, 'src');
@@ -87,6 +88,9 @@ export default {
               importLoaders: 1,
               localIdentName: '[name]_[local]_[hash:base64:5]',
             },
+          },
+          {
+            loader: 'postcss-loader',
           },
         ],
       },
