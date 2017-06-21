@@ -33,7 +33,7 @@ const Html = (props) => {
         <script src={PROD ? app.js : '/static/app.js'} />
         <section className="hero is-primary">
           <div className="hero-body">
-            <div className="container has-text-centered is-medium">
+            <div className="container content has-text-centered is-medium">
               <p>© 2015-2017. All rights reserved.</p>
             </div>
           </div>

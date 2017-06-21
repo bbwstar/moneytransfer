@@ -1,36 +1,44 @@
 .nav {
   height: 5em;
 }
-.hero.is-dark a.nav-item {
-  font-size: 1.5em;
-  // color: #fff;
-}
-
-.is-dark label {
+.is-dark {
+  a.nav-item {
+    font-size: 1.5em;
+  }
+  label {
     color: #fff;
     text-shadow: 1px 1px #363636;
+  }
+  .content {
+    color: #f5f5f5;
+  }
 }
 
-.vh-30 {
-  height: 30vh;
-}
-
-.mbp-1 {
-  margin-bottom: 1%;
-}
-
-.is-dark .content {
-  color: #f5f5f5;
+.is-primary {
+  .content {
+    p {
+      color: #fff;
+    }
+  }
 }
 
 .title.is-primary {
   color: #0c9;
 }
 
-.mb-3 {
-  margin-bottom: 3rem !important;
-}
 
 .field .fa, .field span.select {
     color: #add;
+}
+
+.vh-30 {
+  height: 30vh;
+}
+
+.mb-2 {
+  margin-bottom: 2rem !important;
+}
+
+.mb-3 {
+  margin-bottom: 3rem !important;
 }

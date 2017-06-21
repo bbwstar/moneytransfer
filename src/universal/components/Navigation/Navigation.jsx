@@ -10,7 +10,7 @@ export default () =>
       <div className="container">
         <div className="nav-left logo">
           <a className={classNames('nav-item', styles.navItem)}>
-            <img src="" alt="Logo" />
+            <img src="" alt="TransferMoney" />
           </a>
         </div>
         <span className="nav-toggle">
