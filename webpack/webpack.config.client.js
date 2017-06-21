@@ -83,8 +83,9 @@ export default {
 
       // CSS
       {
-        test: /\.css|less$/,
+        test: /\.css$/,
         include: clientInclude,
+        exclude: /global\.css$/,
         loaders: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -92,6 +93,7 @@ export default {
               loader: 'css-loader',
               options: {
                 root: src,
+                url: false,
                 modules: true,
                 importLoaders: 1,
                 localIdentName: '[name]_[local]_[hash:base64:5]',
@@ -101,6 +103,13 @@ export default {
               loader: 'postcss-loader',
             },
           ],
+        }),
+      },
+      {
+        test: /global\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'postcss-loader'],
         }),
       },
     ],

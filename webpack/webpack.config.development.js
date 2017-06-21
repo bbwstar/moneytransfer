@@ -95,6 +95,7 @@ export default {
       },
       {
         test: /global\.css$/,
+        include: universalSrc,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
