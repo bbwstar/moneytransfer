@@ -60,7 +60,7 @@ axios
     if (PROD) {
       // RouteMap can not be accessible outside of production
       // otherwise Hot Module Replacement wouldn't work as we would get async routes
-      const RouteMap = require('universal/routes/RouteMap');
+      const RouteMap = require('universal/routes/RouteMap').default;
       // Wait for all promises to resolve before rendering.
       // These promises are returned by the loadComponent function on asyncComponent.
       Promise.all(splitPoints.map(chunk => RouteMap[chunk].loadComponent())).then(() => {
