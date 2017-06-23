@@ -4,6 +4,7 @@
 import 'regenerator-runtime/runtime';
 import http from 'http';
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import colors from 'colors';
 import path from 'path';
 
@@ -14,7 +15,9 @@ const PROD = process.env.NODE_ENV === 'production';
 
 const app = express();
 
+app.use(cookieParser());
 app.use(express.static('public'));
+
 if (PROD) {
   app.use('/static', express.static('build'));
   app.get('*', renderPage);

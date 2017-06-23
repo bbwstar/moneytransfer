@@ -10,7 +10,11 @@ import { renderToString } from 'react-dom/server';
 import createHistory from 'history/createMemoryHistory';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
+import acceptLanguage from 'accept-language';
+import { addLocaleData, IntlProvider } from 'react-intl';
 
+import en from 'react-intl/locale-data/en';
+import cs from 'react-intl/locale-data/cs';
 // Redux
 // import {push} from 'react-router-redux';
 import createStore from 'universal/redux/createStore';
@@ -19,18 +23,36 @@ import rootSaga from 'universal/sagas/index';
 // Components
 import Html from 'server/Html';
 
-function renderApp(url, res, store, assets) {
+acceptLanguage.languages(['en', 'cs']);
+addLocaleData([...en, ...cs]);
+const messages = {};
+const localeData = {};
+['en', 'cs'].forEach((locale) => {
+  localeData[locale] = fs
+    .readFileSync(join(__dirname, `../../node_modules/react-intl/locale-data/${locale}.js`))
+    .toString();
+  /* eslint import/no-dynamic-require: 0 */
+  messages[locale] = require(`../../public/lang/${locale}.json`);
+  /* eslint import/no-dynamic-require: 1 */
+});
+
+function renderApp(url, res, locale, assets) {
   const PROD = process.env.NODE_ENV === 'production';
   const Layout = PROD ? require('../../build/prerender.js').default : () => {};
   const context = {
-    splitPoints: [], // Create an empty array
+    splitPoints: [], // Create an empty array should be filled in StaticRouter
   };
+
+  const history = createHistory();
+  const store = createStore(history);
 
   const rootComponent = PROD
     ? (<Provider store={store}>
-      <StaticRouter location={url} context={context}>
-        <Layout />
-      </StaticRouter>
+      <IntlProvider locale={locale} messages={messages[locale]}>
+        <StaticRouter location={url} context={context}>
+          <Layout />
+        </StaticRouter>
+      </IntlProvider>
     </Provider>)
     : null;
 
@@ -47,8 +69,11 @@ function renderApp(url, res, store, assets) {
         rootComponent={rootComponent}
         initialState={initialState}
         splitPoints={splitPoints}
+        localeData={localeData[locale]}
       />,
     );
+
+    res.cookie('locale', locale, { maxAge: new Date().getTime() + 31536000 });
     res.send(`<!DOCTYPE html>${html}`);
   });
   if (PROD) {
@@ -60,21 +85,24 @@ function renderApp(url, res, store, assets) {
   store.closeSagas();
 }
 
+function detectLocale(req) {
+  const cookieLocale = req.cookies.locale;
+
+  return acceptLanguage.get(cookieLocale || req.headers['accept-language']) || 'en';
+}
+
 export const renderPage = (req, res) => {
-  const history = createHistory();
-  const store = createStore(history);
+  const locale = detectLocale(req);
 
   const assets = require('../../build/assets.json');
-
   assets.manifest.text = fs.readFileSync(join(__dirname, '..', '..', 'build', basename(assets.manifest.js)), 'utf-8');
 
-  renderApp(req.url, res, store, assets);
+  renderApp(req.url, res, locale, assets);
 };
 
 export const renderDevPage = (req, res) => {
-  const history = createHistory();
-  const store = createStore(history);
-  renderApp(req.url, res, store);
+  const locale = detectLocale(req);
+  renderApp(req.url, res, locale);
 };
 
 export default renderPage;

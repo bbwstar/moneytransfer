@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { renderToString } from 'react-dom/server';
 
 const Html = (props) => {
-  const { initialState, rootComponent, assets, PROD, splitPoints } = props;
+  const { initialState, rootComponent, assets, PROD, splitPoints, localeData } = props;
 
   const { manifest, app, vendor } = assets || {};
 
@@ -38,6 +38,7 @@ const Html = (props) => {
             </div>
           </div>
         </section>
+        <script type="application/javascript" dangerouslySetInnerHTML={{ __html: localeData }} />
       </body>
     </html>
   );
@@ -51,6 +52,7 @@ Html.defaultProps = {
 Html.propTypes = {
   initialState: PropTypes.string.isRequired,
   splitPoints: PropTypes.string.isRequired,
+  localeData: PropTypes.string.isRequired,
   rootComponent: PropTypes.element,
   assets: PropTypes.shape({
     manifest: PropTypes.object,
