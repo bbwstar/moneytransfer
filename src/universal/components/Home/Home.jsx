@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { FormattedMessage } from 'react-intl';
 
 import Countries from 'components/Home/Countries';
 import Description from 'components/Home/Description';
@@ -15,7 +16,9 @@ const Home = () =>
         <div className="container has-text-centered">
           <div className="tile is-vertical">
             <div className="content is-large mb-2">
-              <h1 className="title is-1">Find the cheapest option to transfer money abroad</h1>
+              <h1 className="title is-1">
+                <FormattedMessage id="home.landingHeroTitle" />
+              </h1>
               <p>You can also search for the fastest or the easiest option</p>
             </div>
             <CalculatorForm />

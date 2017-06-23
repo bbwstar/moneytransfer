@@ -12,6 +12,12 @@
           "./src/universal"
         ]
       }
+    ],
+    [
+      "react-intl",
+      {
+        "messagesDir": "./build/messages/"
+      }
     ]
   ]
 }
