@@ -9,16 +9,18 @@ import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
 import acceptLanguage from 'accept-language';
 import * as axios from 'axios';
-
-import App from 'client/containers/AppContainer';
-import createStore from 'universal/redux/createStore';
-import rootSaga from 'universal/sagas/index';
+import Cookie from 'js-cookie';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import cs from 'react-intl/locale-data/cs';
 
+import App from 'client/containers/AppContainer';
+import createStore from 'universal/redux/createStore';
+import rootSaga from 'universal/sagas/index';
+
 acceptLanguage.languages(['en', 'cs']);
 addLocaleData([...en, ...cs]);
+const locale = Cookie.get('locale') || 'en';
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__INITIAL_STATE__;
@@ -27,8 +29,6 @@ const splitPoints = window.__SPLIT_POINTS__ || [];
 const history = createHistory();
 const store = createStore(history, preloadedState);
 store.rootTask = store.runSaga(rootSaga);
-
-const locale = 'cs';
 
 let renderApp;
 

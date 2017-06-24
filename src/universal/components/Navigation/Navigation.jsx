@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
+import LocaleSwitcher from './LocaleSwitcher';
 import styles from './Navigation.css';
 
 export default () =>
@@ -25,6 +26,7 @@ export default () =>
           <NavLink exact activeClassName="is-active" className="nav-item" to="/reviews">
             Reviews
           </NavLink>
+          <LocaleSwitcher />
         </div>
       </div>
     </header>
