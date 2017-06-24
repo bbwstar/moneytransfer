@@ -79,6 +79,9 @@ This will build all your assets and write them to a `/build` file in the root di
 
 ![hmr-ssr](https://cloud.githubusercontent.com/assets/2454928/18360529/39573fe2-75b3-11e6-8a06-75bc2664e98d.gif)
 
+## 🤖 Localization
+Localization is done using react-intl and implemented following [React Internationalization – How To](https://www.smashingmagazine.com/2017/01/internationalizing-react-apps). When a new translation is added using FormattedMessage it will get extracted by babel-plugin-react-intl extension. This will add file following folder structure into build/messages/.. The file has to be moved to the public/lang folder. To smoothener this process run npm run build:lang Other languages has to be created manually.
+
 ## 🗒 Notes
 
 Hot Module Reloading does not work with `System.import`, as such there are two route sources.
