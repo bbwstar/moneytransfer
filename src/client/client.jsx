@@ -41,7 +41,7 @@ axios
     return response.data;
   })
   .then((localeData) => {
-    addLocaleData(localeData);
+    addLocaleData(window.ReactIntlLocaleData[locale]);
 
     renderApp = (Component) => {
       render(
