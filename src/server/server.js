@@ -4,6 +4,7 @@
 import 'regenerator-runtime/runtime';
 import http from 'http';
 import express from 'express';
+import httpProxy from 'http-proxy';
 import cookieParser from 'cookie-parser';
 import colors from 'colors';
 import path from 'path';
@@ -14,8 +15,21 @@ import { renderPage, renderDevPage } from './ssr';
 const PROD = process.env.NODE_ENV === 'production';
 
 const app = express();
+const apiProxy = httpProxy.createProxyServer();
+
+// Proxy api requests
+app.use('/api/*', (req, res) => {
+  req.url = req.baseUrl; // Janky hack...
+  apiProxy.web(req, res, {
+    target: {
+      port: 3000,
+      host: 'localhost',
+    },
+  });
+});
 
 app.use(cookieParser());
+// server files from public folder on the root domain
 app.use(express.static('public'));
 
 if (PROD) {

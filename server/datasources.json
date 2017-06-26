@@ -1,0 +1,11 @@
+{
+  "mysql": {
+    "name": "mysql",
+    "connector": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "database": "moneytransfer",
+    "user": "root",
+    "password": ""
+  }
+}

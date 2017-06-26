@@ -1,0 +1,43 @@
+{
+  "name": "CurrencyCountry",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "currencyFrom": {
+      "type": "string",
+      "length": 60,
+      "required": true
+    },
+    "currencyTo": {
+      "type": "string",
+      "length": 60,
+      "required": true
+    },
+    "countryFrom": {
+      "type": "string",
+      "length": 60,
+      "required": true
+    },
+    "countryTo": {
+      "type": "string",
+      "length": 60,
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "fees": {
+      "type": "hasAndBelongsToMany",
+      "model": "Fee"
+    },
+    "rates": {
+      "type": "hasMany",
+      "model": "Rate"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,56 @@
+{
+  "name": "Service",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "length": 60,
+      "required": true
+    },
+    "currency": {
+      "type": "string",
+      "length": 10
+    },
+    "amountFree": {
+      "type": "number",
+      "length": 11
+    },
+    "amountMin": {
+      "type": "number",
+      "length": 11
+    },
+    "percentage": {
+      "type": "number",
+      "dataType": "decimal",
+      "precision": 5,
+      "scale": 2
+    },
+    "fixed": {
+      "type": "number",
+      "dataType": "decimal",
+      "precision": 5,
+      "scale": 2
+    },
+    "active": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "fees": {
+      "type": "hasMany",
+      "model": "Fee"
+    },
+    "serviceLocalized": {
+      "type": "hasMany",
+      "model": "ServiceLocalized"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
