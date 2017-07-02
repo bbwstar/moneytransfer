@@ -13,19 +13,10 @@
       "./mixins"
     ]
   },
-  "Service": {
-    "dataSource": "mysql"
+  "service": {
+    "dataSource": "mongodb"
   },
-  "Fee": {
-    "dataSource": "mysql"
-  },
-  "Rate": {
-    "dataSource": "mysql"
-  },
-  "CurrencyCountry": {
-    "dataSource": "mysql"
-  },
-  "ServiceLocalized": {
-    "dataSource": "mysql"
+  "review": {
+    "dataSource": "mongodb"
   }
 }

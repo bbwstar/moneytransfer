@@ -1,6 +1,6 @@
 const server = require('../server');
 
-const ds = server.dataSources.mysql;
+const ds = server.dataSources.mongodb;
 
 ds.automigrate(null, (er) => {
   if (er) throw er;

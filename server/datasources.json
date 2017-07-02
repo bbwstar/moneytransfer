@@ -1,11 +1,11 @@
 {
-  "mysql": {
-    "name": "mysql",
-    "connector": "mysql",
-    "host": "localhost",
-    "port": 3306,
-    "database": "moneytransfer",
-    "user": "root",
-    "password": ""
+  "mongodb": {
+    "name": "mongodb",
+    "connector": "mongodb",
+    "host": "ds147072.mlab.com",
+    "port": 47072,
+    "database": "moneytransfer-development",
+    "user": "moneytransfer",
+    "password": "DotVouHogIrgou5"
   }
 }
