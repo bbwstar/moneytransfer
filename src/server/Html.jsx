@@ -22,7 +22,7 @@ const Html = (props) => {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
         {PROD && <link rel="stylesheet" href="/static/prerender.css" type="text/css" />}
       </head>
-      <body>
+      <body className="hero is-fullheight">
         <script dangerouslySetInnerHTML={{ __html: initialState }} />
         <script dangerouslySetInnerHTML={{ __html: splitPoints }} />
         {PROD
@@ -31,13 +31,15 @@ const Html = (props) => {
         {PROD && <script dangerouslySetInnerHTML={{ __html: manifest.text }} />}
         {PROD && <script src={vendor.js} />}
         <script src={PROD ? app.js : '/static/app.js'} />
-        <section className="hero is-primary">
-          <div className="hero-body">
-            <div className="container content has-text-centered is-medium">
-              <p>© 2015-2017. All rights reserved.</p>
+        <footer>
+          <section className="is-primary">
+            <div className="hero-body">
+              <div className="container content has-text-centered is-medium">
+                <p>© 2015-2017. All rights reserved.</p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </footer>
         <script type="application/javascript" dangerouslySetInnerHTML={{ __html: localeData }} />
       </body>
     </html>
