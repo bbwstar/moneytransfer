@@ -12,7 +12,8 @@
     "max-len": [
       2,
       120
-    ]
+    ],
+    "react/no-array-index-key": 0
   },
   "settings": {
     "import/resolver": {

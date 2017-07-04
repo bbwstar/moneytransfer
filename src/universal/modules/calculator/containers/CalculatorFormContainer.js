@@ -5,7 +5,7 @@ import CalculatorForm from '../components/CalculatorForm';
 import { actions, selectors } from '../reducer';
 
 const mapStateToProps = state => ({
-  albums: selectors.getAlbums(state),
+  reviews: selectors.getReviews(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -46,8 +46,7 @@ function asyncComponent(chunkName, getComponent) {
 
 export const Home = asyncComponent('Home', () => System.import('components/Home/Home'));
 export const Counter = asyncComponent('Counter', () => System.import('modules/counter/containers/CounterContainer'));
-export const Albums = asyncComponent('Albums', () => System.import('modules/album/components/Albums'));
-export const AlbumsList = asyncComponent('AlbumsList', () =>
-  System.import('modules/album/containers/AlbumsListContainer'),
+export const ReviewsList = asyncComponent('ReviewsList', () =>
+  System.import('modules/review/containers/ReviewsListContainer'),
 );
 export const Photos = asyncComponent('Photos', () => System.import('modules/photo/containers/PhotosContainer'));

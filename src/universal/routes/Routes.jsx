@@ -10,13 +10,11 @@ const Routes = (props) => {
   const { location } = props;
 
   return (
-    <AppContainer>
+    <AppContainer location={location}>
       <div>
         <Route exact location={location} path="/" component={RouteMap.Home} />
         <Route exact location={location} path="/counter" component={RouteMap.Counter} />
-        <Route path="/reviews" component={RouteMap.Albums} />
-        <Route exact location={location} path="/albums" component={RouteMap.AlbumsList} />
-        <Route path="/albums/:albumId" component={RouteMap.Photos} />
+        <Route exact location={location} path="/reviews" component={RouteMap.ReviewsList} />
       </div>
     </AppContainer>
   );
