@@ -85,5 +85,6 @@ axios
     }
   })
   .catch((error) => {
+    /* eslint no-console: 0 */
     console.error(error);
   });
