@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
 import LocaleSwitcher from './LocaleSwitcher';
@@ -10,9 +10,9 @@ export default () =>
     <header className="nav">
       <div className="container">
         <div className="nav-left logo">
-          <a className={classNames('nav-item', styles.navItem)}>
+          <Link className={classNames('nav-item', styles.navItem)} to="/">
             <img src="" alt="TransferMoney" />
-          </a>
+          </Link>
         </div>
         <span className="nav-toggle">
           <span />
