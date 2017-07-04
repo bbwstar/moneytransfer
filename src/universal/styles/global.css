@@ -1,10 +1,12 @@
 .nav {
   height: 5em;
 }
+
+a.nav-item {
+  font-size: 1.5em;
+}
+
 .is-dark {
-  a.nav-item {
-    font-size: 1.5em;
-  }
   label {
     color: #fff;
     text-shadow: 1px 1px #363636;
