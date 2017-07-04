@@ -19,7 +19,7 @@ const apiProxy = httpProxy.createProxyServer();
 
 // Proxy api requests
 app.use('/api/*', (req, res) => {
-  req.url = req.baseUrl; // Janky hack...
+  req.url = req.originalUrl;
   apiProxy.web(req, res, {
     target: {
       port: 3000,
