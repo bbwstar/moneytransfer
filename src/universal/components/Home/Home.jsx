@@ -17,9 +17,17 @@ const Home = () =>
           <div className="tile is-vertical">
             <div className="content is-large mb-2">
               <h1 className="title is-1">
-                <FormattedMessage id="home.landingHeroTitle" />
+                <FormattedMessage
+                  id="home.landingHeroTitle"
+                  defaultMessage="Find the cheapest option to transfer money abroad"
+                />
               </h1>
-              <p>You can also search for the fastest or the easiest option</p>
+              <p>
+                <FormattedMessage
+                  id="home.landingHeroText"
+                  defaultMessage="You can also search for the fastest or the easiest option"
+                />
+              </p>
             </div>
             <CalculatorForm />
             <div className="vh-30 is-hidden-mobile" />
