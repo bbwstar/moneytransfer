@@ -1,6 +1,5 @@
 /* eslint global-require: 0 */
 /* eslint no-underscore-dangle: 0*/
-/* eslint import/no-extraneous-dependencies:0 */
 
 import React from 'react';
 import { render } from 'react-dom';

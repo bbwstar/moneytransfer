@@ -1,4 +1,3 @@
-/* eslint import/no-extraneous-dependencies:0 */
 /* eslint no-console: 0 */
 
 import webpack from 'webpack';
