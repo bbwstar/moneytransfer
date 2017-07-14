@@ -19,7 +19,6 @@ describe('LocaleSwitcher (Snapshot)', () => {
     tree.props.onClick();
 
     expect(window.location.reload).toBeCalled();
-
     expect(Cookie.set).toBeCalledWith('locale', 'cs');
   });
 
@@ -37,7 +36,6 @@ describe('LocaleSwitcher (Snapshot)', () => {
     tree.props.onClick();
 
     expect(window.location.reload).toBeCalled();
-
     expect(Cookie.set).toBeCalledWith('locale', 'en');
   });
 });
