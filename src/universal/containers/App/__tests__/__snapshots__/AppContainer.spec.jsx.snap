@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppContainer (Container) renders without exploding 1`] = `
+<App>
+  <div
+    className="test"
+  />
+</App>
+`;

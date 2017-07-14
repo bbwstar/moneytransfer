@@ -18,7 +18,6 @@ describe('App (Snapshot)', () => {
   });
 
   it('renders with navigation', () => {
-    // jest.enableAutomock();
     const component = renderer.create(
       <App location={{ pathname: '' }}>
         <div />
