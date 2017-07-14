@@ -1,12 +1,18 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:jasmine/recommended"
+  ],
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jasmine": true,
+    "jest": true
   },
   "plugins": [
-    "redux-saga"
+    "redux-saga",
+    "jasmine"
   ],
   "rules": {
     "max-len": [

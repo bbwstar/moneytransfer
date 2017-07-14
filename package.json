@@ -8,17 +8,27 @@
     "build": "npm run build:client && npm run build:server",
     "build:server": "NODE_ENV=production webpack --config ./webpack/server.babel.js",
     "build:client": "NODE_ENV=production webpack --config ./webpack/client.babel.js",
-    "lint": "./node_modules/.bin/eslint ./src",
     "build:langs": "./node_modules/.bin/babel scripts/translate.js | node",
-    "nsp": "./node_modules/.bin/nsp check"
+    "lint": "./node_modules/.bin/eslint ./src",
+    "nsp": "./node_modules/.bin/nsp check",
+    "test": "./node_modules/jest/bin/jest.js"
   },
   "author": "Martin Černý <cerny.mrtn@gmail.com>",
   "license": "MIT",
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css)$": "identity-obj-proxy"
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
+  },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
     "autoprefixer": "^7.1.1",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^7.1.0",
     "babel-plugin-module-resolver": "^2.7.1",
     "babel-plugin-react-intl": "^2.3.1",
@@ -28,20 +38,25 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
     "css-loader": "^0.28.4",
+    "enzyme": "^2.9.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-loader": "^1.8.0",
     "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jasmine": "^2.7.1",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.1.0",
     "eslint-plugin-redux-saga": "^0.4.0",
     "extract-text-webpack-plugin": "^2.1.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^20.0.4",
     "node-sass": "^4.5.3",
     "nsp": "^2.6.3",
     "postcss-loader": "^2.0.6",
     "postcss-nested": "^2.0.2",
     "react-hot-loader": "^3.0.0-beta.6",
+    "react-test-renderer": "^15.6.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^2.6.1",
