@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App (Snapshot) renders with navigation 1`] = `
+<div
+  className="app"
+>
+  <Navigation />
+  <div />
+</div>
+`;
+
+exports[`App (Snapshot) renders without navigation 1`] = `
+<div
+  className="app"
+>
+  
+  <div />
+</div>
+`;

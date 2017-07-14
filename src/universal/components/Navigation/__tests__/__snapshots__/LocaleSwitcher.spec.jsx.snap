@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocaleSwitcher (Snapshot) renders and changes locale from cs to en 1`] = `
+<a
+  className="nav-item"
+  onClick={[Function]}
+  role="menuitem"
+  tabIndex="0"
+>
+  English
+</a>
+`;
+
+exports[`LocaleSwitcher (Snapshot) renders and changes locale from en to cs 1`] = `
+<a
+  className="nav-item"
+  onClick={[Function]}
+  role="menuitem"
+  tabIndex="0"
+>
+  Čeština
+</a>
+`;
