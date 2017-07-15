@@ -1,7 +1,7 @@
 /* eslint no-console: 0 */
 
 import { takeLatest, call, put, select } from 'redux-saga/effects';
-import { actions, types, selectors } from 'modules/review/reducers';
+import { actions, types, selectors } from 'modules/review/reducer';
 import * as api from 'api';
 
 function* requestReviews({ locale }) {
