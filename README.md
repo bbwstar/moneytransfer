@@ -87,3 +87,19 @@ Localization is done using react-intl and implemented following [React Internati
 Hot Module Reloading does not work with `System.import`, as such there are two route sources.
 - The first one `src/universal/routes/sync.js` is for static routes (no code splitting) that is for the development environment to work nicely with [React Hot Loader 3](https://github.com/gaearon/react-hot-loader)
 - The second route source `src/universal/routes/async.jsx` is for asynchronous routes (Code splitting using System.import).
+
+## Test Recommendation
+
+- Minimal component tests: verify that the component actually renders.
+- Avoid testing implementation details.
+- Verify important callbacks and other props, but keep it minimal.
+- The need to test logic inside a component might signal the need for refactoring.
+- Using Eslint, PropTypes and Flow will add value.
+- Test reducers as they are functions. Same data in. Same data out.
+- Action Creators: only indirectly, when testing reducers.
+- Async Action Creators: yes fully tested.
+- React-Redux: focus on selectors when complex logic is involved.
+- Connected components: might be useful as a type of integration test, not a prime focus.
+- Fully test any services, common and utility functions. Should all be functions. Making testing simple as same data in, same data out.
+- Advanced Testing: Use generative or property-based testing when applicable, catch edge-cases. Reducers are predestined for property-based testing.
+- E2E Tests for the critical parts.
