@@ -6,25 +6,18 @@
     "validateUpsert": true
   },
   "properties": {
-    "description": {
-      "type": "array",
-      "required": true
-    },
-    "advantages": {
-      "type": "array",
-      "required": true
-    },
-    "disadvantages": {
-      "type": "array",
-      "required": true
-    },
-    "title": {
+    "locale": {
       "type": "string",
       "required": true
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "services": {
+      "type": "embedsMany",
+      "model": "service"
+    }
+  },
   "acls": [],
   "methods": {}
 }

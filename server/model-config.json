@@ -14,7 +14,8 @@
     ]
   },
   "service": {
-    "dataSource": "mongodb"
+    "dataSource": "transient",
+    "public": false
   },
   "review": {
     "dataSource": "mongodb"

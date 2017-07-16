@@ -6,8 +6,12 @@
     "validateUpsert": true
   },
   "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
     "description": {
-      "type": "array",
+      "type": "string",
       "required": true
     },
     "advantages": {
@@ -16,10 +20,6 @@
     },
     "disadvantages": {
       "type": "array",
-      "required": true
-    },
-    "title": {
-      "type": "string",
       "required": true
     }
   },
