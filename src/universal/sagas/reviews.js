@@ -19,6 +19,7 @@ function* requestReviews({ locale }) {
   }
 }
 
+// Saga Helper
 export default function* watchRequestReviews() {
   yield takeLatest(types.REVIEWS_REQUEST, requestReviews);
 }
