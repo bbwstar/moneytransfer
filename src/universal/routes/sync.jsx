@@ -28,6 +28,4 @@ function syncComponent(chunkName, mod) {
 }
 
 export const Home = syncComponent('Home', require('components/Home/Home'));
-export const Counter = syncComponent('Counter', require('modules/counter/containers/CounterContainer'));
 export const ReviewsList = syncComponent('ReviewsList', require('modules/review/containers/ReviewsListContainer'));
-export const Photos = syncComponent('Photos', require('modules/photo/containers/PhotosContainer'));

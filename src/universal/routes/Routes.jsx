@@ -13,7 +13,6 @@ const Routes = (props) => {
     <AppContainer location={location}>
       <div>
         <Route exact location={location} path="/" component={RouteMap.Home} />
-        <Route exact location={location} path="/counter" component={RouteMap.Counter} />
         <Route exact location={location} path="/reviews" component={RouteMap.ReviewsList} />
       </div>
     </AppContainer>
