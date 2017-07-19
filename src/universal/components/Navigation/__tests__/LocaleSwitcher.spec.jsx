@@ -1,7 +1,7 @@
 import React from 'react';
 import Cookie from 'js-cookie';
 
-import createComponentWithIntl from 'utils/createComponentWithIntl';
+import createComponentWithIntl from 'utils/intl-renderer-test-helper';
 import LocaleSwitcher from '../LocaleSwitcher';
 
 describe('LocaleSwitcher (Snapshot)', () => {
