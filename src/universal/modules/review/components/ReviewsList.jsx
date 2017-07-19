@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
 
 import Navigation from 'components/Navigation/Navigation';
+import Review from './Review';
 
 export default class ReviewsList extends Component {
   static defaultProps = {
@@ -15,7 +14,7 @@ export default class ReviewsList extends Component {
     reviews: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
-        description: PropTypes.array.isRequired,
+        description: PropTypes.string.isRequired,
         advantages: PropTypes.array.isRequired,
         disadvantages: PropTypes.array.isRequired,
       }),
@@ -35,40 +34,13 @@ export default class ReviewsList extends Component {
         <div className="hero">
           {this.props.reviews
             ? this.props.reviews.map(review =>
-              (<div key={review.title} className="hero-body">
-                <div className="container">
-                  <div className="columns">
-                    <div className="column is-two-thirds-desktop">
-                      <div className="content">
-                        <h2 className="title is-4">
-                          <Link to={`/reviews/${review.title}`}>{review.title}</Link>
-                        </h2>
-                        <p>{review.description}</p>
-                        <h3 className="title is-5">
-                          <FormattedMessage id="advantages" defaultMessage="Advantages" />
-                        </h3>
-                        <ul>
-                          {review.advantages.map((value, index) =>
-                            (<li key={index}>
-                              {value}
-                            </li>),
-                          )}
-                        </ul>
-                        <h3 className="title is-5">
-                          <FormattedMessage id="disadvantages" defaultMessage="Disadvantages" />
-                        </h3>
-                        <ul>
-                          {review.disadvantages.map((value, index) =>
-                            (<li key={index}>
-                              {value}
-                            </li>),
-                          )}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>),
+              (<Review
+                key={review.title}
+                title={review.title}
+                description={review.description}
+                disadvantages={review.disadvantages}
+                advantages={review.advantages}
+              />),
             )
             : 'Loading...'}
         </div>
