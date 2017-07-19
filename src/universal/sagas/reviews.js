@@ -4,7 +4,7 @@ import { takeLatest, call, put, select } from 'redux-saga/effects';
 import { actions, types, selectors } from 'modules/review/reducer';
 import * as api from 'api';
 
-function* requestReviews({ locale }) {
+export function* requestReviews({ locale }) {
   const cachedReviews = yield select(selectors.getReviews, locale);
   if (!cachedReviews) {
     try {
@@ -14,8 +14,6 @@ function* requestReviews({ locale }) {
     } catch (error) {
       console.log('Reviews request failed');
     }
-  } else {
-    console.log('Reviews already in store');
   }
 }
 
