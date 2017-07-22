@@ -38,7 +38,7 @@ const localeData = {};
 
 function renderApp(url, res, locale, assets) {
   const PROD = process.env.NODE_ENV === 'production';
-  const Layout = PROD ? require('../../build/prerender.js').default : () => {};
+  const Layout = PROD ? require('../../build/prerender.js').default : () => { };
   const context = {
     splitPoints: [], // Create an empty array should be filled in StaticRouter
   };
@@ -50,7 +50,7 @@ function renderApp(url, res, locale, assets) {
     ? (<Provider store={store}>
       <IntlProvider locale={locale} messages={messages[locale]}>
         <StaticRouter location={url} context={context}>
-          <Layout />
+          <Layout location={url} />
         </StaticRouter>
       </IntlProvider>
     </Provider>)
@@ -60,6 +60,7 @@ function renderApp(url, res, locale, assets) {
     // get state from store after sagas were run and strigify it for rendering in HTML
     const state = store.getState();
     const initialState = `window.__INITIAL_STATE__ = ${JSON.stringify(state)}`;
+    // static context splitPoints is filled in sync.js with name of used components (chunks) during SSR
     const splitPoints = `window.__SPLIT_POINTS__ = ${JSON.stringify(context.splitPoints)}`;
 
     const html = renderToString(
