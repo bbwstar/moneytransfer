@@ -42,6 +42,7 @@ export default () =>
                 <p>&nbsp;</p>
               </div>
               <div className="tile is-child">
+                Check images do not run through Routes.jsx (expensive) printout props in Routes.jsx.
                 <img src="images/02.jpg" alt="" className="image-shadow" />
               </div>
             </div>
