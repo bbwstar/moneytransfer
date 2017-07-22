@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Navigation from 'components/Navigation/Navigation';
 import Review from './Review';
 
 export default class ReviewsList extends Component {
@@ -29,21 +28,18 @@ export default class ReviewsList extends Component {
 
   render() {
     return (
-      <div>
-        <Navigation />
-        <div className="hero">
-          {this.props.reviews
-            ? this.props.reviews.map(review =>
-              (<Review
-                key={review.title}
-                title={review.title}
-                description={review.description}
-                disadvantages={review.disadvantages}
-                advantages={review.advantages}
-              />),
-            )
-            : 'Loading...'}
-        </div>
+      <div className="hero">
+        {this.props.reviews
+          ? this.props.reviews.map(review =>
+            (<Review
+              key={review.title}
+              title={review.title}
+              description={review.description}
+              disadvantages={review.disadvantages}
+              advantages={review.advantages}
+            />),
+          )
+          : 'Loading...'}
       </div>
     );
   }

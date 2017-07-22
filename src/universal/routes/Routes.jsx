@@ -6,8 +6,8 @@ import { Route } from 'react-router';
 import AppContainer from 'containers/App/AppContainer';
 import RouteMap from './RouteMap';
 
-const Routes = (props) => {
-  const { location } = props;
+const Routes = (props, { router }) => {
+  const location = router.route.location;
 
   return (
     <AppContainer location={location}>
@@ -19,8 +19,10 @@ const Routes = (props) => {
   );
 };
 
-Routes.propTypes = {
-  location: PropTypes.shape({}).isRequired,
+Routes.contextTypes = {
+  router: PropTypes.shape({
+    route: PropTypes.object.isRequired,
+  }),
 };
 
 export default Routes;

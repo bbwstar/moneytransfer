@@ -38,7 +38,7 @@ const localeData = {};
 
 function renderApp(url, res, locale, assets) {
   const PROD = process.env.NODE_ENV === 'production';
-  const Layout = PROD ? require('../../build/prerender.js').default : () => { };
+  const Layout = PROD ? require('../../build/prerender.js').default : () => {}; // Routes.jsx
   const context = {
     splitPoints: [], // Create an empty array should be filled in StaticRouter
   };
@@ -50,7 +50,7 @@ function renderApp(url, res, locale, assets) {
     ? (<Provider store={store}>
       <IntlProvider locale={locale} messages={messages[locale]}>
         <StaticRouter location={url} context={context}>
-          <Layout location={url} />
+          <Layout />
         </StaticRouter>
       </IntlProvider>
     </Provider>)

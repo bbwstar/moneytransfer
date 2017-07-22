@@ -7,7 +7,7 @@ import Routes from 'universal/routes/Routes';
 
 const AppContainer = props =>
   (<ConnectedRouter history={props.history}>
-    <Route render={({ location }) => <Routes location={location} />} />
+    <Route render={() => <Routes />} />
   </ConnectedRouter>);
 
 AppContainer.propTypes = {
