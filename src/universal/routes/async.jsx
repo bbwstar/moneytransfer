@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loading from 'components/Loading/Loading';
 
 function asyncComponent(chunkName, getComponent) {
   return class AsyncComponent extends Component {
@@ -15,13 +16,21 @@ function asyncComponent(chunkName, getComponent) {
 
     state = {
       LoadedComponent: AsyncComponent.Component,
+      slowLoading: false,
+      error: false,
     };
 
     componentWillMount() {
+      this.timeouts = [];
       if (this.state.LoadedComponent === null) {
         AsyncComponent.loadComponent().then((LoadedComponent) => {
           if (this.mounted) {
-            this.setState({ LoadedComponent });
+            this.timeouts.forEach(clearTimeout);
+            this.setState({
+              LoadedComponent,
+              slowLoading: false,
+              error: false,
+            });
           }
         });
       }
@@ -29,17 +38,25 @@ function asyncComponent(chunkName, getComponent) {
 
     componentDidMount() {
       this.mounted = true;
+      this.timeouts.push(setTimeout(() => { this.setState({ slowLoading: true }); }, 2000));
+      this.timeouts.push(setTimeout(() => { this.setState({ error: true }); }, 15000));
     }
 
     componentWillUnmount() {
       this.mounted = false;
+      this.timeouts.forEach(clearTimeout);
     }
+
     render() {
-      const { LoadedComponent } = this.state;
+      const { LoadedComponent, slowLoading, error } = this.state;
       if (LoadedComponent) {
         return <LoadedComponent {...this.props} />;
+      } else if (slowLoading) {
+        return <Loading />;
+      } else if (error) {
+        return <div>There was an error. Please reload the page.</div>;
       }
-      return <div>loading...component</div>; // or <div /> with a loading spinner, etc..
+      return null;
     }
   };
 }

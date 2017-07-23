@@ -14,7 +14,10 @@ const serverInclude = [serverSrc, universalSrc];
 export default {
   context: src,
   entry: {
-    prerender: './universal/routes/Routes.jsx',
+    prerender: [
+      './universal/components/Loading/Loading.jsx', // We need to load css of the component in prerender.css
+      './universal/routes/Routes.jsx',
+    ],
   },
   target: 'node',
   output: {
