@@ -17,21 +17,12 @@ describe('(IT Saga) Reviews', () => {
       {
         title: 'Title',
         description: 'Description',
-        advantages: [
-          'Advantage 1',
-        ],
-        disadvantages: [
-          'Disadvatantage 1',
-        ],
+        advantages: ['Advantage 1'],
+        disadvantages: ['Disadvatantage 1'],
       },
     ];
-    const responseData = [{
-      id: '595bdb2204b1aa3a7b737165',
-      locale: 'en',
-      services,
-    }];
 
-    mockAxios.onGet('/api/reviews?filter[where][locale]=en').reply(200, responseData);
+    mockAxios.onGet('/api/reviews/en/servicesRel').reply(200, services);
 
     // Start up the saga tester
     const sagaTester = new SagaTester({

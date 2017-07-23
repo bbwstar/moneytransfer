@@ -8,9 +8,9 @@ export function* requestReviews({ locale }) {
   const cachedReviews = yield select(selectors.getReviews, locale);
   if (!cachedReviews) {
     try {
-      const uri = `/reviews?filter[where][locale]=${locale}`;
+      const uri = `/reviews/${locale}/servicesRel`;
       const response = yield call(api.get, uri);
-      yield put(actions.receiveReviews(locale, response.data[0].services));
+      yield put(actions.receiveReviews(locale, response.data));
     } catch (error) {
       console.log('Reviews request failed');
     }
