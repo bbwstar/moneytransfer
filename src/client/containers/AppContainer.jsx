@@ -5,10 +5,11 @@ import { Route } from 'react-router';
 
 import Routes from 'universal/routes/Routes';
 
-const AppContainer = props =>
-  (<ConnectedRouter history={props.history}>
+const AppContainer = props => (
+  <ConnectedRouter history={props.history}>
     <Route render={() => <Routes />} />
-  </ConnectedRouter>);
+  </ConnectedRouter>
+  );
 
 AppContainer.propTypes = {
   history: PropTypes.shape({}).isRequired,
