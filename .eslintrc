@@ -15,7 +15,7 @@
   ],
   "rules": {
     "max-len": [
-      2,
+      "error",
       120
     ],
     "react/no-array-index-key": 0,
