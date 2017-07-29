@@ -7,7 +7,7 @@ import styles from './App.css';
 
 const App = props =>
   (<div className={styles.app}>
-    {props.location.pathname !== '' ? <Navigation /> : ''}
+    {props.location.pathname !== '/' ? <Navigation /> : ''}
     {props.children}
   </div>);
 

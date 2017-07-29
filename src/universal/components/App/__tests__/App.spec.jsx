@@ -19,7 +19,7 @@ describe('App (Snapshot)', () => {
 
   it('renders without navigation', () => {
     const component = renderer.create(
-      <App location={{ pathname: '' }}>
+      <App location={{ pathname: '/' }}>
         <div />
       </App>,
     );
