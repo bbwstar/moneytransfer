@@ -6,7 +6,7 @@ import App from '../App';
 jest.mock('components/Navigation/Navigation', () => 'Navigation');
 
 describe('App (Snapshot)', () => {
-  it('renders without navigation', () => {
+  it('renders with navigation', () => {
     const component = renderer.create(
       <App location={{ pathname: '/review' }}>
         <div />
@@ -17,7 +17,7 @@ describe('App (Snapshot)', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders with navigation', () => {
+  it('renders without navigation', () => {
     const component = renderer.create(
       <App location={{ pathname: '' }}>
         <div />
@@ -28,4 +28,3 @@ describe('App (Snapshot)', () => {
     expect(tree).toMatchSnapshot();
   });
 });
-
