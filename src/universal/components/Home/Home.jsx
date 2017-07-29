@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import Countries from 'components/Home/Countries';
 import Description from 'components/Home/Description';
 import Navigation from 'components/Navigation/Navigation';
-import CalculatorForm from 'modules/calculator/components/CalculatorForm';
+import CalculatorFormContainer from 'modules/calculator/containers/CalculatorFormContainer';
 import styles from './Home.css';
 
 const Home = () =>
@@ -29,7 +29,7 @@ const Home = () =>
                 />
               </p>
             </div>
-            <CalculatorForm />
+            <CalculatorFormContainer />
             <div className="vh-30 is-hidden-mobile" />
           </div>
         </div>

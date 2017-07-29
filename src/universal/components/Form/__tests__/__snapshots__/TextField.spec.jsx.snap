@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField (Snapshot) renders without exploding 1`] = `
+<TextField
+  handleChange={[Function]}
+  name="test"
+  value="defaultValue"
+>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="test"
+    >
+      test
+    </label>
+    <p
+      className="control"
+    >
+      <input
+        className="input is-medium is-fullwidth"
+        id="test"
+        name="test"
+        onChange={[Function]}
+        type="text"
+        value="defaultValue"
+      />
+    </p>
+  </div>
+</TextField>
+`;

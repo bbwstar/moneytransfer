@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField (Component) match the snaphost 1`] = `
+<CalculatorForm
+  changePage={[Function]}
+>
+  <div
+    className="columns"
+  >
+    <div
+      className="column is-8 is-offset-2"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="columns"
+        >
+          <div
+            className="column"
+          >
+            <SelectField
+              handleChange={[Function]}
+              name="From"
+              options={
+                Array [
+                  Object {
+                    "name": "Czech Republic",
+                  },
+                  Object {
+                    "name": "United Kingdom",
+                  },
+                ]
+              }
+              value=""
+            >
+              <div
+                className="field"
+              >
+                <label
+                  className="label"
+                  htmlFor="From"
+                >
+                  From
+                </label>
+                <p
+                  className="control"
+                >
+                  <span
+                    className="select is-medium is-fullwidth"
+                  >
+                    <select
+                      id="from"
+                      name="from"
+                      onChange={[Function]}
+                      value=""
+                    >
+                      <option />
+                      <option
+                        value="Czech Republic"
+                      >
+                        Czech Republic
+                      </option>
+                      <option
+                        value="United Kingdom"
+                      >
+                        United Kingdom
+                      </option>
+                    </select>
+                  </span>
+                </p>
+              </div>
+            </SelectField>
+          </div>
+          <div
+            className="column"
+          >
+            <SelectField
+              handleChange={[Function]}
+              name="To"
+              options={
+                Array [
+                  Object {
+                    "name": "Czech Republic",
+                  },
+                  Object {
+                    "name": "United Kingdom",
+                  },
+                ]
+              }
+              value=""
+            >
+              <div
+                className="field"
+              >
+                <label
+                  className="label"
+                  htmlFor="To"
+                >
+                  To
+                </label>
+                <p
+                  className="control"
+                >
+                  <span
+                    className="select is-medium is-fullwidth"
+                  >
+                    <select
+                      id="to"
+                      name="to"
+                      onChange={[Function]}
+                      value=""
+                    >
+                      <option />
+                      <option
+                        value="Czech Republic"
+                      >
+                        Czech Republic
+                      </option>
+                      <option
+                        value="United Kingdom"
+                      >
+                        United Kingdom
+                      </option>
+                    </select>
+                  </span>
+                </p>
+              </div>
+            </SelectField>
+          </div>
+        </div>
+        <div
+          className="columns"
+        >
+          <div
+            className="column"
+          >
+            <SelectField
+              handleChange={[Function]}
+              name="Type"
+              options={
+                Array [
+                  Object {
+                    "name": "Sent",
+                  },
+                  Object {
+                    "name": "Receive",
+                  },
+                ]
+              }
+              value="sent"
+            >
+              <div
+                className="field"
+              >
+                <label
+                  className="label"
+                  htmlFor="Type"
+                >
+                  Type
+                </label>
+                <p
+                  className="control"
+                >
+                  <span
+                    className="select is-medium is-fullwidth"
+                  >
+                    <select
+                      id="type"
+                      name="type"
+                      onChange={[Function]}
+                      value="sent"
+                    >
+                      <option />
+                      <option
+                        value="Sent"
+                      >
+                        Sent
+                      </option>
+                      <option
+                        value="Receive"
+                      >
+                        Receive
+                      </option>
+                    </select>
+                  </span>
+                </p>
+              </div>
+            </SelectField>
+          </div>
+          <div
+            className="column"
+          >
+            <TextField
+              handleChange={[Function]}
+              name="Amount"
+              value="1000"
+            >
+              <div
+                className="field"
+              >
+                <label
+                  className="label"
+                  htmlFor="amount"
+                >
+                  Amount
+                </label>
+                <p
+                  className="control"
+                >
+                  <input
+                    className="input is-medium is-fullwidth"
+                    id="amount"
+                    name="amount"
+                    onChange={[Function]}
+                    type="text"
+                    value="1000"
+                  />
+                </p>
+              </div>
+            </TextField>
+          </div>
+        </div>
+        <div
+          className="columns"
+        >
+          <div
+            className="column is-2 is-offset-5 has-text-centered"
+          >
+            <div
+              className="tile is-parent"
+            >
+              <div
+                className="field is-fullwidth"
+              >
+                <p
+                  className="control"
+                >
+                  <button
+                    className="button is-primary is-medium is-fullwidth"
+                  >
+                    Submit
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</CalculatorForm>
+`;

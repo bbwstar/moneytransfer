@@ -1,15 +1,14 @@
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { push } from 'react-router-redux';
 
 import CalculatorForm from '../components/CalculatorForm';
-import { actions, selectors } from '../reducer';
 
 const mapStateToProps = state => ({
-  reviews: selectors.getReviews(state),
+  state,
 });
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators(actions, dispatch),
+  changePage: url => dispatch(push(url)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CalculatorForm);

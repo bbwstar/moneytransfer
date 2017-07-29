@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField (Snapshot) renders without exploding 1`] = `
+<SelectField
+  handleChange={[Function]}
+  name="test"
+  options={
+    Array [
+      Object {
+        "name": "First Option",
+        "value": "First Value",
+      },
+      Object {
+        "name": "Second Option",
+      },
+    ]
+  }
+  value="defaultValue"
+>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="test"
+    >
+      test
+    </label>
+    <p
+      className="control"
+    >
+      <span
+        className="select is-medium is-fullwidth"
+      >
+        <select
+          id="test"
+          name="test"
+          onChange={[Function]}
+          value="defaultValue"
+        >
+          <option />
+          <option
+            value="First Value"
+          >
+            First Option
+          </option>
+          <option
+            value="Second Option"
+          >
+            Second Option
+          </option>
+        </select>
+      </span>
+    </p>
+  </div>
+</SelectField>
+`;
