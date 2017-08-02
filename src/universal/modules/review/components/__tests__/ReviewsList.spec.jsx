@@ -6,21 +6,21 @@ import Review from '../Review';
 
 describe('ReviewsList', () => {
   let props;
-  let shallowedReviewsList;
+  let shallowedComponent;
 
   const requestReviews = jest.fn();
   const reviewList = () => {
-    if (!shallowedReviewsList) {
-      shallowedReviewsList = shallow(<ReviewsList {...props} />);
+    if (!shallowedComponent) {
+      shallowedComponent = shallow(<ReviewsList {...props} />);
     }
-    return shallowedReviewsList;
+    return shallowedComponent;
   };
 
   beforeEach(() => {
     props = {
       requestReviews,
     };
-    shallowedReviewsList = undefined;
+    shallowedComponent = undefined;
   });
 
   it('should render without reviews', () => {

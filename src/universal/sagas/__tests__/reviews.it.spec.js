@@ -1,11 +1,22 @@
-import reducer, { types } from 'modules/review/reducer';
 import SagaTester from 'redux-saga-tester';
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
+import { select } from 'redux-saga/effects';
 
-import watchRequestReviews from '../reviews';
+import reducer, { types, selectors } from 'modules/review/reducer';
+
+import watchRequestReviews, { requestReviews } from '../reviews';
 
 const mockAxios = new MockAdapter(axios);
+
+describe('(Saga) Reviews', () => {
+  it('should not fetch reviews when in store', () => {
+    const gen = requestReviews({ locale: 'en' });
+
+    expect(gen.next().value).toEqual(select(selectors.getReviews, 'en'));
+    expect(gen.next({ reviews: { en: 'English Review' } }).done).toBeTruthy();
+  });
+});
 
 describe('(IT Saga) Reviews', () => {
   afterEach(() => {
