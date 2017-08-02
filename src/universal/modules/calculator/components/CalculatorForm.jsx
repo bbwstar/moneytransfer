@@ -21,7 +21,7 @@ class CalculatorForm extends Component {
     const typeSlug = convertToSlug(type);
     const amountSlug = convertToSlug(amount);
 
-    this.props.changePage(`/${typeSlug}/${fromSlug}/${toSlug}/${amountSlug}`);
+    this.props.changePage(`/${typeSlug}-money/${fromSlug}/${toSlug}/${amountSlug}`);
   };
 
   handleChange = (event) => {
@@ -34,7 +34,7 @@ class CalculatorForm extends Component {
 
   render() {
     const countriesOptions = [{ name: 'Czech Republic' }, { name: 'United Kingdom' }];
-    const typeOptions = [{ name: 'Sent' }, { name: 'Receive' }];
+    const typeOptions = [{ name: 'Send' }, { name: 'Receive' }];
 
     return (
       <div className="columns">

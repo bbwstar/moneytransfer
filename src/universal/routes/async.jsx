@@ -38,8 +38,16 @@ function asyncComponent(chunkName, getComponent) {
 
     componentDidMount() {
       this.mounted = true;
-      this.timeouts.push(setTimeout(() => { this.setState({ slowLoading: true }); }, 2000));
-      this.timeouts.push(setTimeout(() => { this.setState({ error: true }); }, 15000));
+      this.timeouts.push(
+        setTimeout(() => {
+          this.setState({ slowLoading: true });
+        }, 2000),
+      );
+      this.timeouts.push(
+        setTimeout(() => {
+          this.setState({ error: true });
+        }, 15000),
+      );
     }
 
     componentWillUnmount() {
@@ -64,4 +72,7 @@ function asyncComponent(chunkName, getComponent) {
 export const Home = asyncComponent('Home', () => System.import('components/Home/Home'));
 export const ReviewsList = asyncComponent('ReviewsList', () =>
   System.import('modules/review/containers/ReviewsListContainer'),
+);
+export const QuotesList = asyncComponent('QuotesList', () =>
+  System.import('modules/quote/containers/QuotesListContainer'),
 );

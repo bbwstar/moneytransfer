@@ -14,6 +14,12 @@ const Routes = (props, { router }) => {
       <div>
         <Route exact location={location} path="/" component={RouteMap.Home} />
         <Route exact location={location} path="/reviews" component={RouteMap.ReviewsList} />
+        <Route
+          exact
+          location={location}
+          path="/send-money/:sourceCountry/:targetCountry/:sourceAmount"
+          component={RouteMap.QuotesList}
+        />
       </div>
     </AppContainer>
   );
