@@ -4,3 +4,6 @@ build
 npm-debug.log
 
 coverage
+
+.chrome/
+.vscode/
