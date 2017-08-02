@@ -1,7 +1,7 @@
 import * as axios from 'axios';
 
 // General API constants
-export const URL = '/api';
+export const URL = 'http://localhost:3000/api';
 export const AUTH_HEADER = 'Authorization';
 
 const requestConfig = {
