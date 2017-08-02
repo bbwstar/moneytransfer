@@ -141,7 +141,7 @@ exports[`TextField (Component) match the snaphost 1`] = `
               options={
                 Array [
                   Object {
-                    "name": "Sent",
+                    "name": "Send",
                   },
                   Object {
                     "name": "Receive",
@@ -173,9 +173,9 @@ exports[`TextField (Component) match the snaphost 1`] = `
                     >
                       <option />
                       <option
-                        value="Sent"
+                        value="Send"
                       >
-                        Sent
+                        Send
                       </option>
                       <option
                         value="Receive"

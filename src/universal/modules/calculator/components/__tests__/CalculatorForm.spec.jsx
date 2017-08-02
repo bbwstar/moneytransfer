@@ -52,11 +52,11 @@ describe('TextField (Component)', () => {
 
   describe('submit the form', () => {
     it('redirects to result page after submit', () => {
-      wrapper.setState({ from: 'Italy', to: 'Czech republic', type: 'Sent', amount: '1000' });
+      wrapper.setState({ from: 'Italy', to: 'Czech republic', type: 'Send', amount: '1000' });
 
       wrapper.find('button').simulate('submit');
 
-      expect(changePage).toBeCalledWith('/sent/italy/czech-republic/1000');
+      expect(changePage).toBeCalledWith('/send-money/italy/czech-republic/1000');
     });
 
     it('prevents default action onSubmit', () => {
