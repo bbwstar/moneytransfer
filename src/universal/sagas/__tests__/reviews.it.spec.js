@@ -33,7 +33,7 @@ describe('(IT Saga) Reviews', () => {
       },
     ];
 
-    mockAxios.onGet('/api/reviews/en/servicesRel').reply(200, services);
+    mockAxios.onGet('http://localhost:3000/api/reviews/en/servicesRel').reply(200, services);
 
     // Start up the saga tester
     const sagaTester = new SagaTester({
