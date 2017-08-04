@@ -19,7 +19,9 @@
     "moduleNameMapper": {
       "\\.(css)$": "identity-obj-proxy"
     },
-    "collectCoverageFrom": ["src/**/*.{js,jsx}"]
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
@@ -51,6 +53,7 @@
     "extract-text-webpack-plugin": "^2.1.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
+    "nock": "^9.0.14",
     "node-sass": "^4.5.3",
     "nsp": "^2.6.3",
     "postcss-loader": "^2.0.6",
