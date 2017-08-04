@@ -1,8 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextField (Component) match the snaphost 1`] = `
+exports[`CalculatorForm (Component) match the snaphost 1`] = `
 <CalculatorForm
   changePage={[Function]}
+  intl={
+    Object {
+      "defaultFormats": Object {},
+      "defaultLocale": "en",
+      "formatDate": [Function],
+      "formatHTMLMessage": [Function],
+      "formatMessage": [Function],
+      "formatNumber": [Function],
+      "formatPlural": [Function],
+      "formatRelative": [Function],
+      "formatTime": [Function],
+      "formats": Object {},
+      "formatters": Object {
+        "getDateTimeFormat": [Function],
+        "getMessageFormat": [Function],
+        "getNumberFormat": [Function],
+        "getPluralFormat": [Function],
+        "getRelativeFormat": [Function],
+      },
+      "locale": "en",
+      "messages": Object {},
+      "now": [Function],
+      "textComponent": "span",
+    }
+  }
 >
   <div
     className="columns"
@@ -22,6 +47,13 @@ exports[`TextField (Component) match the snaphost 1`] = `
             <SelectField
               handleChange={[Function]}
               name="From"
+              nameFormattedMessage={
+                <FormattedMessage
+                  defaultMessage="From"
+                  id="from"
+                  values={Object {}}
+                />
+              }
               options={
                 Array [
                   Object {
@@ -41,7 +73,15 @@ exports[`TextField (Component) match the snaphost 1`] = `
                   className="label"
                   htmlFor="From"
                 >
-                  From
+                  <FormattedMessage
+                    defaultMessage="From"
+                    id="from"
+                    values={Object {}}
+                  >
+                    <span>
+                      From
+                    </span>
+                  </FormattedMessage>
                 </label>
                 <p
                   className="control"
@@ -78,6 +118,13 @@ exports[`TextField (Component) match the snaphost 1`] = `
             <SelectField
               handleChange={[Function]}
               name="To"
+              nameFormattedMessage={
+                <FormattedMessage
+                  defaultMessage="To"
+                  id="to"
+                  values={Object {}}
+                />
+              }
               options={
                 Array [
                   Object {
@@ -97,7 +144,15 @@ exports[`TextField (Component) match the snaphost 1`] = `
                   className="label"
                   htmlFor="To"
                 >
-                  To
+                  <FormattedMessage
+                    defaultMessage="To"
+                    id="to"
+                    values={Object {}}
+                  >
+                    <span>
+                      To
+                    </span>
+                  </FormattedMessage>
                 </label>
                 <p
                   className="control"
@@ -138,6 +193,13 @@ exports[`TextField (Component) match the snaphost 1`] = `
             <SelectField
               handleChange={[Function]}
               name="Type"
+              nameFormattedMessage={
+                <FormattedMessage
+                  defaultMessage="Type"
+                  id="type"
+                  values={Object {}}
+                />
+              }
               options={
                 Array [
                   Object {
@@ -157,7 +219,15 @@ exports[`TextField (Component) match the snaphost 1`] = `
                   className="label"
                   htmlFor="Type"
                 >
-                  Type
+                  <FormattedMessage
+                    defaultMessage="Type"
+                    id="type"
+                    values={Object {}}
+                  >
+                    <span>
+                      Type
+                    </span>
+                  </FormattedMessage>
                 </label>
                 <p
                   className="control"
@@ -194,6 +264,13 @@ exports[`TextField (Component) match the snaphost 1`] = `
             <TextField
               handleChange={[Function]}
               name="Amount"
+              nameFormattedMessage={
+                <FormattedMessage
+                  defaultMessage="Amount"
+                  id="amount"
+                  values={Object {}}
+                />
+              }
               value="1000"
             >
               <div
@@ -203,7 +280,15 @@ exports[`TextField (Component) match the snaphost 1`] = `
                   className="label"
                   htmlFor="amount"
                 >
-                  Amount
+                  <FormattedMessage
+                    defaultMessage="Amount"
+                    id="amount"
+                    values={Object {}}
+                  >
+                    <span>
+                      Amount
+                    </span>
+                  </FormattedMessage>
                 </label>
                 <p
                   className="control"
@@ -230,19 +315,23 @@ exports[`TextField (Component) match the snaphost 1`] = `
             <div
               className="tile is-parent"
             >
-              <div
-                className="field is-fullwidth"
+              <p
+                className="control"
               >
-                <p
-                  className="control"
+                <button
+                  className="button is-primary is-large is-fullwidth"
                 >
-                  <button
-                    className="button is-primary is-medium is-fullwidth"
+                  <FormattedMessage
+                    defaultMessage="Submit"
+                    id="submit"
+                    values={Object {}}
                   >
-                    Submit
-                  </button>
-                </p>
-              </div>
+                    <span>
+                      Submit
+                    </span>
+                  </FormattedMessage>
+                </button>
+              </p>
             </div>
           </div>
         </div>

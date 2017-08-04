@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
 import SelectField from 'components/Form/SelectField';
 import TextField from 'components/Form/TextField';
@@ -44,6 +45,7 @@ class CalculatorForm extends Component {
               <div className="column">
                 <SelectField
                   name="From"
+                  nameFormattedMessage={<FormattedMessage id="from" defaultMessage="From" />}
                   handleChange={this.handleChange}
                   value={this.state.from}
                   options={countriesOptions}
@@ -52,6 +54,7 @@ class CalculatorForm extends Component {
               <div className="column">
                 <SelectField
                   name="To"
+                  nameFormattedMessage={<FormattedMessage id="to" defaultMessage="To" />}
                   handleChange={this.handleChange}
                   value={this.state.to}
                   options={countriesOptions}
@@ -62,23 +65,29 @@ class CalculatorForm extends Component {
               <div className="column">
                 <SelectField
                   name="Type"
+                  nameFormattedMessage={<FormattedMessage id="type" defaultMessage="Type" />}
                   handleChange={this.handleChange}
                   value={this.state.type}
                   options={typeOptions}
                 />
               </div>
               <div className="column">
-                <TextField name="Amount" handleChange={this.handleChange} value={this.state.amount} />
+                <TextField
+                  name="Amount"
+                  nameFormattedMessage={<FormattedMessage id="amount" defaultMessage="Amount" />}
+                  handleChange={this.handleChange}
+                  value={this.state.amount}
+                />
               </div>
             </div>
             <div className="columns">
               <div className="column is-2 is-offset-5 has-text-centered">
                 <div className="tile is-parent">
-                  <div className="field is-fullwidth">
-                    <p className="control">
-                      <button className="button is-primary is-medium is-fullwidth">Submit</button>
-                    </p>
-                  </div>
+                  <p className="control">
+                    <button className="button is-primary is-large is-fullwidth">
+                      <FormattedMessage id="submit" defaultMessage="Submit" />
+                    </button>
+                  </p>
                 </div>
               </div>
             </div>

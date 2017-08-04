@@ -1,15 +1,15 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import { mountWithIntl } from 'utils/intl-enzyme-test-helper';
 
 import CalculatorForm from '../CalculatorForm';
 
 let wrapper;
 const changePage = jest.fn();
 
-describe('TextField (Component)', () => {
+describe('CalculatorForm (Component)', () => {
   beforeEach(() => {
-    wrapper = mount(<CalculatorForm changePage={changePage} />);
+    wrapper = mountWithIntl(<CalculatorForm changePage={changePage} />);
   });
 
   it('renders without exploding', () => {

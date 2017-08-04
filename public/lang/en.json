@@ -1,6 +1,20 @@
 {
-  "home.landingHeroTitle": "Find the cheapest option to transfer money abroad",
-  "home.landingHeroText": "You can also search for the fastest or the easiest option",
+  "testMessage": "testMessage",
+  "components.home.countries.searchPlaceholder": "Search all money transfer providers",
+  "components.home.countries.title": "Where are you sending your money to?",
+  "americas": "Americas",
+  "europe": "Europe",
+  "asia": "Asia",
+  "africa": "Africa",
+  "components.home.home.landingHeroTitle": "Find the cheapest option to transfer money abroad",
+  "components.homem.home.landingHeroText": "You can also search for the fastest or the easiest option",
+  "comparison": "Comparison",
+  "reviews": "Reviews",
+  "from": "From",
+  "to": "To",
+  "type": "Type",
+  "amount": "Amount",
+  "submit": "Submit",
   "advantages": "Advantages",
   "disadvantages": "Disadvantages"
 }

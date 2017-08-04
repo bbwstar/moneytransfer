@@ -3,7 +3,39 @@
 exports[`TextField (Snapshot) renders without exploding 1`] = `
 <TextField
   handleChange={[Function]}
+  intl={
+    Object {
+      "defaultFormats": Object {},
+      "defaultLocale": "en",
+      "formatDate": [Function],
+      "formatHTMLMessage": [Function],
+      "formatMessage": [Function],
+      "formatNumber": [Function],
+      "formatPlural": [Function],
+      "formatRelative": [Function],
+      "formatTime": [Function],
+      "formats": Object {},
+      "formatters": Object {
+        "getDateTimeFormat": [Function],
+        "getMessageFormat": [Function],
+        "getNumberFormat": [Function],
+        "getPluralFormat": [Function],
+        "getRelativeFormat": [Function],
+      },
+      "locale": "en",
+      "messages": Object {},
+      "now": [Function],
+      "textComponent": "span",
+    }
+  }
   name="test"
+  nameFormattedMessage={
+    <FormattedMessage
+      defaultMessage="testMessage"
+      id="testMessage"
+      values={Object {}}
+    />
+  }
   value="defaultValue"
 >
   <div
@@ -13,7 +45,15 @@ exports[`TextField (Snapshot) renders without exploding 1`] = `
       className="label"
       htmlFor="test"
     >
-      test
+      <FormattedMessage
+        defaultMessage="testMessage"
+        id="testMessage"
+        values={Object {}}
+      >
+        <span>
+          testMessage
+        </span>
+      </FormattedMessage>
     </label>
     <p
       className="control"

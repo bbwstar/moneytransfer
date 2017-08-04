@@ -1,12 +1,21 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { FormattedMessage } from 'react-intl';
 import toJson from 'enzyme-to-json';
+import { mountWithIntl } from 'utils/intl-enzyme-test-helper';
 
 import SelectField from '../SelectField';
 
 const handleChange = jest.fn();
 const options = [{ name: 'First Option', value: 'First Value' }, { name: 'Second Option' }];
-const wrapper = mount(<SelectField name="test" value="defaultValue" handleChange={handleChange} options={options} />);
+const wrapper = mountWithIntl(
+  <SelectField
+    name="test"
+    nameFormattedMessage={<FormattedMessage id="testMessage" defaultMessage="testMessage" />}
+    value="defaultValue"
+    handleChange={handleChange}
+    options={options}
+  />,
+);
 
 describe('TextField (Snapshot)', () => {
   it('renders without exploding', () => {

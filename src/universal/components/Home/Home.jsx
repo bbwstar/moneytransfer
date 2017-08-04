@@ -18,13 +18,13 @@ const Home = () =>
             <div className="content is-large mb-2">
               <h1 className="title is-1">
                 <FormattedMessage
-                  id="home.landingHeroTitle"
+                  id="components.home.home.landingHeroTitle"
                   defaultMessage="Find the cheapest option to transfer money abroad"
                 />
               </h1>
               <p>
                 <FormattedMessage
-                  id="home.landingHeroText"
+                  id="components.homem.home.landingHeroText"
                   defaultMessage="You can also search for the fastest or the easiest option"
                 />
               </p>

@@ -1,11 +1,19 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { FormattedMessage } from 'react-intl';
+import { mountWithIntl } from 'utils/intl-enzyme-test-helper';
 import toJson from 'enzyme-to-json';
 
 import TextField from '../TextField';
 
 const handleChange = jest.fn();
-const wrapper = mount(<TextField name="test" value="defaultValue" handleChange={handleChange} />);
+const wrapper = mountWithIntl(
+  <TextField
+    name="test"
+    nameFormattedMessage={<FormattedMessage id="testMessage" defaultMessage="testMessage" />}
+    value="defaultValue"
+    handleChange={handleChange}
+  />,
+);
 
 describe('TextField (Snapshot)', () => {
   it('renders without exploding', () => {

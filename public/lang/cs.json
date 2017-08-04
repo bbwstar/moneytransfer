@@ -1,3 +1,19 @@
 {
-  "home.landingHeroTitle": "Nejvýhodnější převod peněz do zahrničí"
+  "components.home.countries.title": "Kam chcete poslat své peníze?",
+  "components.home.countries.searchPlaceholder": "Vyhledej recenzi společností",
+  "americas": "Amerika",
+  "europe": "Evropa",
+  "asia": "Asie",
+  "africa": "Afrika",
+  "components.home.home.landingHeroTitle": "Nejvýhodnější převod peněz do zahrničí",
+  "components.homem.home.landingHeroText": "Srovnání služeb pro převod peněz do nebo ze zahraničí",
+  "comparison": "Srovnání",
+  "reviews": "Recenze",
+  "from": "Z",
+  "to": "Do",
+  "type": "Typ",
+  "amount": "Částka",
+  "submit": "Odeslat  ",
+  "advantages": "Výhody",
+  "disadvantages": "Nevýhody"
 }
