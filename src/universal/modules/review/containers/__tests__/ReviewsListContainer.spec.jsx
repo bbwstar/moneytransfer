@@ -14,7 +14,7 @@ const storeStateMock = {
 
 let store;
 let wrapper;
-describe('(Container) ReviewsListContainer', () => {
+describe('ReviewsListContainer (Container)', () => {
   beforeEach(() => {
     store = mockStore(storeStateMock);
     wrapper = shallowWithIntl(<ReviewsListContainer store={store} />);

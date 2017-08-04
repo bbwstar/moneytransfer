@@ -6,7 +6,7 @@ import watchRequestTransferWise from '../transferWise';
 jest.mock('utils/country/countryToCurrency');
 const countryToCurrency = require('utils/country/countryToCurrency').default;
 
-describe('(IT Saga) TransferWise', () => {
+describe('TransferWise (IT Saga)', () => {
   it('should received reviews and store them in store', async () => {
     countryToCurrency.mockImplementationOnce(() => 'CZK').mockImplementationOnce(() => 'GBP');
 

@@ -22,7 +22,7 @@ describe('(Saga) Reviews', () => {
   });
 });
 
-describe('(IT Saga) Reviews', () => {
+describe('Reviews (IT Saga)', () => {
   it('should received reviews and store them in store', async () => {
     const services = [
       {
