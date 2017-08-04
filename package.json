@@ -19,9 +19,7 @@
     "moduleNameMapper": {
       "\\.(css)$": "identity-obj-proxy"
     },
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ]
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"]
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
@@ -80,7 +78,6 @@
     "express": "^4.15.3",
     "helmet": "^3.6.1",
     "history": "^4.6.3",
-    "http-proxy": "^1.16.2",
     "js-cookie": "^2.1.4",
     "loopback": "^3.8.0",
     "loopback-boot": "^2.24.1",
