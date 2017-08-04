@@ -19,9 +19,7 @@
     "moduleNameMapper": {
       "\\.(css)$": "identity-obj-proxy"
     },
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ]
+    "collectCoverageFrom": ["src/universal/**/*.{js,jsx}"]
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
