@@ -10,6 +10,18 @@ const requestConfig = {
   },
 };
 
+const requestConfigJSON = {
+  headers: {
+    'Content-Type': 'application/json',
+  },
+};
+
+const requestConfigFormData = {
+  headers: {
+    'Content-Type': 'multipart/form-data',
+  },
+};
+
 //
 // API GET
 //
@@ -46,6 +58,41 @@ export function get(requestUrl, query = {}, config = requestConfig) {
   return promise;
 }
 
-export function getFromOwnApi(endpoint) {
+export function getOwnApi(endpoint) {
+  return get(URL + endpoint);
+}
+
+//
+// API POST
+//
+export function post(endpoint, body) {
+  let config = requestConfig;
+  let requestBody = body;
+
+  if (body instanceof FormData) {
+    config = Object.assign(config, requestConfigFormData);
+  } else if (typeof body === 'object') {
+    config = Object.assign(config, requestConfigJSON);
+    requestBody = JSON.stringify(body);
+  }
+
+  // setAuthHeaders(config.headers);
+
+  const promise = new Promise((resolve, reject) => {
+    axios
+      .post(endpoint, requestBody, config)
+      .then((response) => {
+        const data = response;
+        resolve(data);
+      })
+      .catch((response) => {
+        reject(response);
+      });
+  });
+
+  return promise;
+}
+
+export function postOwnApi(endpoint) {
   return get(URL + endpoint);
 }

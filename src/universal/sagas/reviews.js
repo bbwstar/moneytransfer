@@ -9,7 +9,7 @@ export function* requestReviews({ locale }) {
   if (!cachedReviews) {
     try {
       const uri = `/reviews/${locale}/servicesRel`;
-      const response = yield call(api.getFromOwnApi, uri);
+      const response = yield call(api.getOwnApi, uri);
       yield put(actions.receiveReviews(locale, response.data));
     } catch (error) {
       console.log('Reviews request failed');
