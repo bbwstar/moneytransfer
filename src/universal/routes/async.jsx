@@ -76,3 +76,4 @@ export const ReviewsList = asyncComponent('ReviewsList', () =>
 export const QuotesList = asyncComponent('QuotesList', () =>
   System.import('modules/quote/containers/QuotesListContainer'),
 );
+export const Article = asyncComponent('Article', () => System.import('modules/article/containers/ArticleContainer'));
