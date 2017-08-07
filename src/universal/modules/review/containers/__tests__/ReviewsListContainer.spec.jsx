@@ -23,4 +23,10 @@ describe('ReviewsListContainer (Container)', () => {
   it('should render component', () => {
     expect(wrapper.find(ReviewsList)).toHaveLength(1);
   });
+
+  it('dispatches requestQuotes action', () => {
+    wrapper.find(ReviewsList).props().requestReviews();
+
+    expect(store.getActions()).toEqual([{ type: 'REVIEWS_REQUEST', locale: 'en' }]);
+  });
 });
