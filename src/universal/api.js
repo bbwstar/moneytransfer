@@ -62,6 +62,10 @@ export function getOwnApi(endpoint) {
   return get(URL + endpoint);
 }
 
+export function getProxy(endpoint) {
+  return get(`http://localhost:3000/${endpoint}`);
+}
+
 //
 // API POST
 //

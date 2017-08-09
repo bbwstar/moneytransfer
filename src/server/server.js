@@ -19,6 +19,11 @@ app.use(cookieParser());
 // server files from public folder on the root domain
 app.use(express.static('public'));
 
+// move to dev only when nginx is setup on server
+const proxy = require('./proxy').default;
+
+proxy(app);
+
 if (PROD) {
   app.use('/static', express.static('build'));
   app.get('*', renderPage);

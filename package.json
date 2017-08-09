@@ -19,7 +19,9 @@
     "moduleNameMapper": {
       "\\.(css)$": "identity-obj-proxy"
     },
-    "collectCoverageFrom": ["src/universal/**/*.{js,jsx}"]
+    "collectCoverageFrom": [
+      "src/universal/**/*.{js,jsx}"
+    ]
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
@@ -49,6 +51,7 @@
     "eslint-plugin-react": "^7.1.0",
     "eslint-plugin-redux-saga": "^0.4.0",
     "extract-text-webpack-plugin": "^2.1.2",
+    "http-proxy": "^1.16.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
     "nock": "^9.0.14",

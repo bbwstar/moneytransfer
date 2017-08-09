@@ -3,13 +3,8 @@ import SagaTester from 'redux-saga-tester';
 import reducer, { types } from 'modules/article/reducer';
 import watchRequestArticle from '../article';
 
-// jest.mock('utils/country/countryToCurrency');
-// const countryToCurrency = require('utils/country/countryToCurrency').default;
-
 describe('Article (IT Saga)', () => {
   it('should received reviews and store them in store', async () => {
-    // countryToCurrency.mockImplementationOnce(() => 'CZK').mockImplementationOnce(() => 'GBP');
-
     // Start up the saga tester
     const sagaTester = new SagaTester({
       initialState: { articles: {} },
