@@ -1,17 +1,13 @@
 import SagaTester from 'redux-saga-tester';
-import nock from 'nock';
+import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
-import httpAdapter from 'axios/lib/adapters/http';
 import { select } from 'redux-saga/effects';
 
 import reducer, { types, selectors } from 'modules/review/reducer';
 
 import watchRequestReviews, { requestReviews } from '../reviews';
 
-const host = 'http://localhost:3000';
-
-axios.defaults.host = host;
-axios.defaults.adapter = httpAdapter;
+const mockAxios = new MockAdapter(axios);
 
 describe('(Saga) Reviews', () => {
   it('should not fetch reviews when in store', () => {
@@ -23,6 +19,10 @@ describe('(Saga) Reviews', () => {
 });
 
 describe('Reviews (IT Saga)', () => {
+  beforeEach(() => {
+    mockAxios.reset();
+  });
+
   it('should received reviews and store them in store', async () => {
     const services = [
       {
@@ -33,7 +33,8 @@ describe('Reviews (IT Saga)', () => {
       },
     ];
 
-    nock(host).get('/api/reviews/en/servicesRel').reply(200, services);
+    // const mockAxios = new MockAdapter(axios);
+    mockAxios.onGet('http://localhost:3000/api/reviews/en/servicesRel').reply(200, services);
 
     // Start up the saga tester
     const sagaTester = new SagaTester({
@@ -53,8 +54,8 @@ describe('Reviews (IT Saga)', () => {
     });
   });
 
-  it('should gracefully fail', async () => {
-    nock(host).get('/api/reviews/en/servicesRel').replyWithError('There was a network error');
+  it('should gracefully fail', () => {
+    mockAxios.onGet('http://localhost:3000/api/reviews/en/servicesRel').networkError();
 
     // Start up the saga tester
     const sagaTester = new SagaTester({

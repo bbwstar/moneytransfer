@@ -7,12 +7,13 @@ import * as api from 'api';
 export function* requestReviews({ locale }) {
   const cachedReviews = yield select(selectors.getReviews, locale);
   if (!cachedReviews) {
+    const uri = `/reviews/${locale}/servicesRel`;
     try {
-      const uri = `/reviews/${locale}/servicesRel`;
+      console.log(uri);
       const response = yield call(api.getOwnApi, uri);
       yield put(actions.receiveReviews(locale, response.data));
     } catch (error) {
-      console.log('Reviews request failed');
+      console.log(`Reviews request failed ${error}`);
     }
   }
 }

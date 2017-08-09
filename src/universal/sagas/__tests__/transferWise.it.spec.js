@@ -1,4 +1,6 @@
 import SagaTester from 'redux-saga-tester';
+import MockAdapter from 'axios-mock-adapter';
+import axios from 'axios';
 
 import reducer, { types } from 'modules/quote/reducer';
 import watchRequestTransferWise from '../transferWise';
@@ -6,10 +8,15 @@ import watchRequestTransferWise from '../transferWise';
 jest.mock('utils/country/countryToCurrency');
 const countryToCurrency = require('utils/country/countryToCurrency').default;
 
+const params = {
+  sourceAmount: 1000,
+  sourceCountry: 'czech-republic',
+  targetCountry: 'united-kingdom',
+};
+
 describe('TransferWise (IT Saga)', () => {
   it('should received quote and store it in the store', async () => {
     countryToCurrency.mockImplementationOnce(() => 'CZK').mockImplementationOnce(() => 'GBP');
-
     // Start up the saga tester
     const sagaTester = new SagaTester({
       initialState: { quotes: {} },
@@ -18,11 +25,6 @@ describe('TransferWise (IT Saga)', () => {
     sagaTester.start(watchRequestTransferWise);
 
     // Dispatch the event to start the saga
-    const params = {
-      sourceAmount: 1000,
-      sourceCountry: 'czech-republic',
-      targetCountry: 'united-kingdom',
-    };
     sagaTester.dispatch({ type: types.QUOTES_REQUEST, params });
 
     // Hook into the success action
@@ -40,7 +42,21 @@ describe('TransferWise (IT Saga)', () => {
     expect(fee).toBe(42);
   });
 
-  it('should gracefully fail', async () => {
-    // TODO error scenario
+  it('should gracefully fail', () => {
+    countryToCurrency.mockImplementationOnce(() => 'CZK').mockImplementationOnce(() => 'GBP');
+
+    const mockAxios = new MockAdapter(axios);
+    mockAxios
+      .onGet('https://api.transferwise.com/v1/quotes?sourceAmount=1000&source=CZK&target=GBP&rateType=FIXED')
+      .networkError();
+
+    // Start up the saga tester
+    const sagaTester = new SagaTester({
+      initialState: { quotes: {} },
+    });
+    sagaTester.start(watchRequestTransferWise);
+
+    // Dispatch the event to start the saga
+    sagaTester.dispatch({ type: types.QUOTES_REQUEST, params });
   });
 });

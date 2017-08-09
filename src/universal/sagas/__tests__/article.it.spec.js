@@ -1,4 +1,6 @@
 import SagaTester from 'redux-saga-tester';
+import MockAdapter from 'axios-mock-adapter';
+import axios from 'axios';
 
 import reducer, { types } from 'modules/article/reducer';
 import watchRequestArticle from '../article';
@@ -26,6 +28,16 @@ describe('Article (IT Saga)', () => {
   });
 
   it('should gracefully fail', async () => {
-    // TODO error scenario
+    const mockAxios = new MockAdapter(axios);
+    mockAxios.onGet('http://transfermoney.cz/wp-json/wp/v2/pages?slug=TransferWise').networkError();
+
+    // Start up the saga tester
+    const sagaTester = new SagaTester({
+      initialState: { articles: {} },
+    });
+    sagaTester.start(watchRequestArticle);
+
+    // Dispatch the event to start the saga
+    sagaTester.dispatch({ type: types.ARTICLE_REQUEST, name: 'TransferWise', locale: 'cs' });
   });
 });

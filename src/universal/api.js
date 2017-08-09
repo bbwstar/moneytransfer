@@ -63,7 +63,7 @@ export function getOwnApi(endpoint) {
 }
 
 export function getProxy(endpoint) {
-  return get(`http://localhost:3000/${endpoint}`);
+  return get(`http://localhost:8080/${endpoint}`);
 }
 
 //

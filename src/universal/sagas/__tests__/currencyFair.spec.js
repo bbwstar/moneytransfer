@@ -1,20 +1,28 @@
 import SagaTester from 'redux-saga-tester';
-import nock from 'nock';
+import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
-import httpAdapter from 'axios/lib/adapters/http';
 
 import reducer, { types } from 'modules/quote/reducer';
 import watchRequestCurrencyFair from '../currencyFair';
 
-const host = 'http://localhost:8080';
-
-axios.defaults.host = host;
-axios.defaults.adapter = httpAdapter;
-
 jest.mock('utils/country/countryToCurrency');
 const countryToCurrency = require('utils/country/countryToCurrency').default;
 
+const mockAxios = new MockAdapter(axios);
+
+const params = {
+  sourceAmount: 1000,
+  sourceCountry: 'czech-republic',
+  targetCountry: 'united-kingdom',
+};
+const url =
+  'http://localhost:8080/calculator/quicktrade-quote?amount=1000&depositCurrency=CZK&beneficiaryCurrency=GBP&mode=SELL';
+
 describe('CurrencyFair (Saga)', () => {
+  afterEach(() => {
+    mockAxios.reset();
+  });
+
   it('should received reviews and store them in store', async () => {
     countryToCurrency.mockImplementationOnce(() => 'CZK').mockImplementationOnce(() => 'GBP');
 
@@ -32,9 +40,7 @@ describe('CurrencyFair (Saga)', () => {
       },
     };
 
-    nock(host)
-      .get('/calculator/quicktrade-quote?amount=1000&depositCurrency=CZK&beneficiaryCurrency=GBP&mode=SELL')
-      .reply(200, quote);
+    mockAxios.onGet(url).reply(200, quote);
 
     // Start up the saga tester
     const sagaTester = new SagaTester({
@@ -44,11 +50,6 @@ describe('CurrencyFair (Saga)', () => {
     sagaTester.start(watchRequestCurrencyFair);
 
     // Dispatch the event to start the saga
-    const params = {
-      sourceAmount: 1000,
-      sourceCountry: 'czech-republic',
-      targetCountry: 'united-kingdom',
-    };
     sagaTester.dispatch({ type: types.QUOTES_REQUEST, params });
 
     // Hook into the success action
@@ -68,7 +69,18 @@ describe('CurrencyFair (Saga)', () => {
     expect(fee).toBe(2.5);
   });
 
-  it('should gracefully fail', async () => {
-    // TODO error scenario
+  it('should gracefully fail', () => {
+    countryToCurrency.mockImplementationOnce(() => 'CZK').mockImplementationOnce(() => 'GBP');
+
+    mockAxios.onGet(url).networkError();
+
+    // Start up the saga tester
+    const sagaTester = new SagaTester({
+      initialState: { quotes: {} },
+    });
+    sagaTester.start(watchRequestCurrencyFair);
+
+    // Dispatch the event to start the saga
+    sagaTester.dispatch({ type: types.QUOTES_REQUEST, params });
   });
 });

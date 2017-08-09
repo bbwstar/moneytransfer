@@ -14,7 +14,7 @@ export function* requestArticle({ locale, name }) {
       // console.log(response.data[0].content.rendered);
       yield put(actions.receiveArticle(name, response.data[0].content.rendered));
     } catch (error) {
-      console.log('Article request failed');
+      console.log(`Article request failed ${error}`);
     }
   }
 }
