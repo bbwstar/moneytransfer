@@ -28,7 +28,9 @@ export default class Article extends Component {
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-three-quarters-desktop">
-              <div dangerouslySetInnerHTML={{ __html: articleHtml }} />
+              <div className="content">
+                <div dangerouslySetInnerHTML={{ __html: articleHtml }} />
+              </div>
             </div>
           </div>
         </div>
